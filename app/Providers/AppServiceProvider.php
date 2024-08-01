@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\User;
 use App\Services\Newsletter;
 use MailchimpMarketing\ApiClient;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Gate;
 use App\Services\MailchimpNewsletter;
 use Illuminate\Database\Eloquent\Model;
@@ -36,5 +38,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin' , function (User $user){
             return $user?->username == 'osama';
         });
+
+        
+        if(App::environment('production')){
+            URL::forceScheme('https');
+        }
     }
 }
