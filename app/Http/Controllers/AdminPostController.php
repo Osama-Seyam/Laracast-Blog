@@ -40,7 +40,7 @@ class AdminPostController extends Controller
         }
 
         $post->update($attributes);
-        return redirect('admin.posts.index');
+        return redirect('/');
     }
 
     public function destroy(Post $post){
