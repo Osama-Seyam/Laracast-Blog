@@ -1,9 +1,4 @@
 <?php
-
-use App\Models\Post;
-use App\Models\User;
-use App\Models\Category;
-use App\Services\Newsletter;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
@@ -11,8 +6,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsletterController;
-use Illuminate\Validation\ValidationException;
-
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
@@ -31,3 +25,5 @@ Route::post('logout', [SessionController::class, 'destroy']);
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
+
+Route::get('/profile', [ProfileController::class, 'index']);
