@@ -25,5 +25,3 @@ Route::post('logout', [SessionController::class, 'destroy']);
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
-
-Route::get('/profile', [ProfileController::class, 'index']);

@@ -4,11 +4,7 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{asset('profile/css/fontawesome.all.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('profile/css/adminlte.css')}}">
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <style>
     html{
@@ -27,19 +23,19 @@
             </div>
 
 
-                </div>
-                    @auth
-                        <x-dropdown>
+            @can('admin')
+                <div>
+                    <x-dropdown>
                             <x-slot name="trigger">
                                 <button class="text-xs font-bold uppercase">Welcome! {{auth()->user()->name}}</button>
                             </x-slot>
                                 <x-dropdown-item href="/profile">Profile</x-dropdown-item>
-                            @can('admin')
+
                                 <x-dropdown-item href="/admin/posts">Dashboard</x-dropdown-item>
-                            @endcan
+
                         </x-dropdown>
-                    @endauth
-                <div>
+                    </div>
+            @endcan
 
 
             <div class="mt-8 md:mt-0">
@@ -72,12 +68,4 @@
     </section>
 
     <x-flash />
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="{{asset('profile/js/jquery.js')}}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('profile/js/bootstrap.bundle.js')}}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('profile/js/adminlte.js')}}"></script>
-
 </body>

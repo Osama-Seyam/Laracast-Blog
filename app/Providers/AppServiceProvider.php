@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
             return $user?->username == 'osama';
         });
 
-        
+
         if(App::environment('production')){
             URL::forceScheme('https');
         }
