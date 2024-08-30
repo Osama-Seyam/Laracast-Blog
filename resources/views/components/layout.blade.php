@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
+<title>My Personal Blog</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,6 @@
                             <x-slot name="trigger">
                                 <button class="text-xs font-bold uppercase">Welcome! {{auth()->user()->name}}</button>
                             </x-slot>
-                                <x-dropdown-item href="/profile">Profile</x-dropdown-item>
                             @can('admin')
                                 <x-dropdown-item href="/admin/posts">Dashboard</x-dropdown-item>
                             @endcan
