@@ -29,7 +29,6 @@
                             <x-slot name="trigger">
                                 <button class="text-xs font-bold uppercase">Welcome! {{auth()->user()->name}}</button>
                             </x-slot>
-                                <x-dropdown-item href="/profile">Profile</x-dropdown-item>
                             @can('admin')
                                 <x-dropdown-item href="/admin/posts">Dashboard</x-dropdown-item>
 
